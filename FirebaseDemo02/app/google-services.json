@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "559465431746",
+    "firebase_url": "https://fir-ex02-a16d8.firebaseio.com",
+    "project_id": "fir-ex02-a16d8",
+    "storage_bucket": "fir-ex02-a16d8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:559465431746:android:2ca58efb1a3bb378",
+        "android_client_info": {
+          "package_name": "com.example.gamze.firebasedemo02"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "559465431746-cr4diq3jkqbcbqcthnd4jviu639ubgc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNSP4XaUWiDhiCZDelo2twAz850M2k9nM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
