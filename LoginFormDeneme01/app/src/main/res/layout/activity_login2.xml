@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent"-->
+<!--android:paddingTop="154dp"-->
+<!--android:orientation="vertical"-->
+    <!---->
+    <!--android:background="@color/background"-->
+<!--tools:context="com.example.gamze.loginformdeneme01.Login2Activity">-->
+
+<!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
+<!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;android:paddingTop="56dp"&ndash;&gt;-->
+<!--&lt;!&ndash;android:paddingLeft="24dp"&ndash;&gt;-->
+<!--&lt;!&ndash;android:paddingRight="24dp">&ndash;&gt;-->
+
+    <!--<LinearLayout-->
+        <!--android:id="@+id/linearLayout2"-->
+        <!--android:layout_width="300dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:paddingLeft="10dp"-->
+        <!--android:orientation="vertical">-->
+
+    <!--<android.support.design.widget.TextInputLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/input_name"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:drawableLeft="@drawable/ic_person_black_24dp"-->
+            <!--android:drawablePadding="8dp"-->
+            <!--android:drawableTint="#FFF"-->
+            <!--android:hint="Kullanıcı Adı"-->
+            <!--android:textColor="@color/whitegreyish"-->
+            <!--android:textColorHint="@color/white"-->
+            <!--android:inputType="textCapWords" />-->
+    <!--</android.support.design.widget.TextInputLayout>-->
+
+
+    <!--<EditText android:id="@+id/input_password"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:inputType="textPassword"-->
+    <!--android:hint="Password" />-->
+<!--<Button android:id="@+id/login2Button"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="24dp"-->
+    <!--android:layout_marginBottom="24dp"-->
+    <!--android:padding="12dp"-->
+    <!--android:text="Giriş Yap"/>-->
+
+<!--<TextView android:id="@+id/linkto_register"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginBottom="24dp"-->
+    <!--android:text="@string/title6"-->
+    <!--android:gravity="center"-->
+    <!--android:textSize="16dip"/>-->
+
+
+<!--<ProgressBar-->
+    <!--style="?android:attr/progressBarStyleLargeInverse"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:id="@+id/progressbar2"-->
+    <!--android:layout_above="@+id/linearLayout2"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--/>-->
+<!--</LinearLayout>-->
+<!--</LinearLayout>-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:background="@color/b3"
+tools:context="com.example.gamze.loginformdeneme01.Login2Activity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo" />
+<LinearLayout
+    android:id="@+id/linearLayout2"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:orientation="vertical">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/input_name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/ic_person_black_24dp"
+            android:drawablePadding="8dp"
+            android:drawableTint="#FFF"
+            android:hint="Kullanıcı Adı"
+            android:textColor="@color/whitegreyish"
+            android:textColorHint="@color/white"
+            android:inputType="textCapWords" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/input_password"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableLeft="@drawable/ic_lock_black_24dp"
+            android:drawablePadding="8dp"
+            android:drawableTint="#FFF"
+            android:hint="Şifre"
+            android:inputType="textPassword" />
+    </android.support.design.widget.TextInputLayout>
+
+    <!--<Button-->
+        <!--android:id="@+id/login2Button"-->
+        <!--class="mdl-button mdl-js-button mdl-button&#45;&#45;raised mdl-button&#45;&#45;colored"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_above="@+id/linearLayout"-->
+        <!--android:padding="13dp"-->
+        <!--android:paddingTop="40dp"-->
+        <!--android:text="Giriş Yap"-->
+        <!--android:textColor="#009688"-->
+        <!--android:textSize="16sp"-->
+        <!--android:textAllCaps="false"-->
+        <!--android:textStyle="bold" />-->
+
+
+    <Button
+        android:id="@+id/login2Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_above="@+id/linearLayout"
+        android:background="@drawable/button_bg"
+        android:paddingRight="25dp"
+        android:text="Giriş Yap"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textAllCaps="false" />
+
+    <TextView
+        android:id="@+id/linkto_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/title6"
+        android:textSize="16dp"
+        android:layout_gravity="center"
+        android:textColor="@color/whitegreyish"/>
+
+</LinearLayout>
+    </RelativeLayout>

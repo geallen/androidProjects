@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">LoginFormDeneme01</string>
+    <string name="app_name1">Komşuda Pişer</string>
+    <string name="title1">İlan Sahibi Hakkında</string>
+    <string name="title2">Menu İçeriği</string>
+    <string name="title3">Teslim Alınacak Saat: </string>
+    <string name="title4">Seçiniz</string>
+    <string name="title5">Siparişi Tamamla</string>
+    <string name="title6">Kayıt Olun</string>
+    <string name="title7">Bilgilerimi Göster</string>
+    <string name="title8">Ayarları Kaydet</string>
+    <string name="title9">Onayla</string>
+    <string name="title10">İptal</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="ilan_ekle">Ekle</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawerActivity</string>
+    <string name="FCM_PREF">com.example.gamze.loginformdeneme01.fcm_pref</string>
+    <string name="FCM_TOKEN">com.example.gamze.loginformdeneme01.fcm_token</string>
+    <item name="visible" type="id"/>
+    <item name="masked" type="id"/>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

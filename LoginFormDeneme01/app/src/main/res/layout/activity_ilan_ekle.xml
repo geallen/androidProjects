@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="80dp"
+    android:background="@color/background"
+    tools:context="com.example.gamze.loginformdeneme01.IlanEkleActivity">
+
+    <TextView
+        android:id="@+id/selling_itemstw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:textSize="16dp"
+        android:textColor="@color/whitegreyish"
+        android:text="Yemekleri Giriniz : " />
+
+    <EditText
+        android:id="@+id/selling_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:hint="Ürünleri Giriniz"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/items_costtw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="25dp"
+        android:paddingTop="20dp"
+        android:textSize="16dp"
+        android:textColor="@color/whitegreyish"
+        android:text="Fiyatı Giriniz :" />
+
+    <EditText
+        android:id="@+id/items_cost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:hint="Fiyat"
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:inputType="textPersonName" />
+
+
+    <Button
+        android:id="@+id/finish_post"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_bg"
+
+        android:text="Ekle"
+        android:textColor="@color/whitegreyish"
+        android:textSize="16dp"
+        android:textAllCaps="true" />
+
+    <ProgressBar
+        android:id="@+id/pbbar_ilan_ekle"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
+
+</LinearLayout>
