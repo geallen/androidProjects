@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -53,6 +54,17 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             super(view);
             isim = (TextView) view.findViewById(R.id.userName);
             resim = (ImageView) view.findViewById(R.id.userImg);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION){
+                        User selectedUser = userList.get(position);
+                        Toast.makeText(context, "Secilen kullanici: "+ selectedUser.getName(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
         }
 
     }
