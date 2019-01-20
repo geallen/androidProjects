@@ -3,9 +3,11 @@ package gykizmir.com.newproject;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -25,92 +29,94 @@ import java.util.UUID;
 
 public class StorageActivity extends AppCompatActivity {
 
-    private Button btnChoose, btnUpload;
-    private ImageView imageView;
-    private Uri filePath;
-    private final int PICK_IMAGE_REQUEST = 71;
-    FirebaseStorage storage;
-    StorageReference storageReference;
+    private Button uploadBtn, selectImgBtn;
+    private ImageView uploadedImg;
+    private StorageReference databaseReference;
+    private final int IMG_REQUEST_CODE = 82;
+    private Uri selectedData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_storage);
-        btnChoose = (Button) findViewById(R.id.btnChoose);
-        btnUpload = (Button) findViewById(R.id.btnUpload);
-        imageView = (ImageView) findViewById(R.id.imgView);
-        btnChoose.setOnClickListener(new View.OnClickListener() {
+
+        selectImgBtn = (Button) findViewById(R.id.secBtn);
+        uploadBtn = (Button) findViewById(R.id.yukleBtn);
+        uploadedImg = (ImageView) findViewById(R.id.image);
+
+        databaseReference = FirebaseStorage.getInstance().getReference();
+
+        selectImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chooseImage();
+                resmiSec();
             }
         });
-        btnUpload.setOnClickListener(new View.OnClickListener() {
+
+        uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadImage();
+                resmiYukle();
             }
         });
-        storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
+
     }
 
-    private void chooseImage() {
-        Intent intent = new Intent();
+    public void resmiSec(){
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Yuklenecek Resmi Sec"), PICK_IMAGE_REQUEST);
+        startActivityForResult(Intent.createChooser(intent, "Yuklenecek resmi sec"), IMG_REQUEST_CODE);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
-                && data != null && data.getData() != null )
-        {
-            filePath = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                imageView.setImageBitmap(bitmap);
-            }
-            catch (IOException e)
-            {
+
+        if(requestCode == IMG_REQUEST_CODE && resultCode == RESULT_OK && data != null && data.getData() != null){
+            selectedData = data.getData();
+
+            try{
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedData);
+                uploadedImg.setImageBitmap(bitmap);
+
+            } catch (Exception e){
                 e.printStackTrace();
             }
+
         }
     }
 
-    private void uploadImage() {
-        if(filePath != null)
-        {
+    public void resmiYukle(){
+        if(selectedData != null){
             final ProgressDialog progressDialog = new ProgressDialog(this);
             progressDialog.setTitle("Yukleniyor...");
             progressDialog.show();
-            StorageReference ref = storageReference.child(UUID.randomUUID().toString());
 
-            ref.putFile(filePath)
+            StorageReference storageReference = databaseReference.child(UUID.randomUUID().toString());
+            storageReference.putFile(selectedData)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            Toast.makeText(getApplicationContext(), "Yukleme Tamamlandi", Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), "Yuklendi", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getApplicationContext(), "Yukleme sirasinda hata olustu", Toast.LENGTH_LONG).show();
                             progressDialog.dismiss();
-                            Toast.makeText(getApplicationContext(), "Hata olustu "+e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
                             @SuppressWarnings("VisibleForTests")
-                            double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot
-                                    .getTotalByteCount());
-                            progressDialog.setMessage("Yuklenme orani:  "+(int)progress+"%");
+                            double yuklenmeOrani = (100 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                            progressDialog.setMessage("Yuklenen : %" + (int) yuklenmeOrani);
                         }
-                    });
+            });
+
         }
+
     }
 }

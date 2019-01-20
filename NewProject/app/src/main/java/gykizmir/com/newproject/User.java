@@ -1,9 +1,5 @@
 package gykizmir.com.newproject;
 
-/**
- * Created by Gamze on 1/13/2019.
- */
-
 public class User {
     private String name;
 
